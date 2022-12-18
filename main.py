@@ -7,7 +7,7 @@ from PyQt6.QtWidgets import QWidget, QLabel, QRadioButton
 from PyQt6.QtWidgets import QMessageBox
 
 from task1 import run1
-
+from task2 import run2
 
 
 class Ui_Lab_3(QWidget):
@@ -68,8 +68,8 @@ class Ui_Lab_3(QWidget):
 
         self.Path_to_dataset.clicked.connect(self.get_folder)
         self.Task1.clicked.connect(self.task1)
+        self.Task2.clicked.connect(self.task2)
 
-    # task 1
     def get_folder(self):
         self.folder = QtWidgets.QFileDialog.getExistingDirectory(self, 'Select Folder')
         os.chdir(self.folder)
@@ -84,6 +84,12 @@ class Ui_Lab_3(QWidget):
         complete.setText("Выполнено")
         complete.exec()
 
+    def task2(self):
+        run2(self.folder, "datasetTask1", "Annotation")
+        complete = QMessageBox()
+        complete.setWindowTitle("OK")
+        complete.setText("Выполнено")
+        complete.exec()
 
 if __name__ == "__main__":
 
