@@ -8,6 +8,7 @@ from PyQt6.QtWidgets import QMessageBox
 
 from task1 import run1
 from task2 import run2
+from task3 import run3
 
 
 class Ui_Lab_3(QWidget):
@@ -69,6 +70,7 @@ class Ui_Lab_3(QWidget):
         self.Path_to_dataset.clicked.connect(self.get_folder)
         self.Task1.clicked.connect(self.task1)
         self.Task2.clicked.connect(self.task2)
+        self.Task3.clicked.connect(self.task3)
 
     def get_folder(self):
         self.folder = QtWidgets.QFileDialog.getExistingDirectory(self, 'Select Folder')
@@ -90,6 +92,14 @@ class Ui_Lab_3(QWidget):
         complete.setWindowTitle("OK")
         complete.setText("Выполнено")
         complete.exec()
+
+    def task3(self):
+        run3(self.folder, 'annotation.csv', 'datasetcopy2')
+        complete = QMessageBox()
+        complete.setWindowTitle("OK")
+        complete.setText("Выполнено")
+        complete.exec()
+
 
 if __name__ == "__main__":
 
